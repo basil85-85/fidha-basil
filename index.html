@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Our First Valentine’s Day 2026 ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg-dark: #05010a;
+      --bg-card: rgba(255, 255, 255, 0.08);
+      --accent: #ff4b7d;
+      --accent-soft: #ffb6c9;
+      --text-main: #ffffff;
+      --text-muted: #e4d7ff;
+      --gradient: linear-gradient(135deg, #ff4b7d, #ff9a9e, #fecfef);
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+      background: radial-gradient(circle at top, #2b0038 0, #05010a 55%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Floating hearts background */
+    .heart-bg {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .bg-heart {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: rgba(255, 75, 125, 0.85);
+      transform: rotate(-45deg);
+      animation: floatUp 10s linear infinite;
+      border-radius: 3px;
+      box-shadow: 0 0 15px rgba(255, 75, 125, 0.9);
+    }
+
+    .bg-heart::before,
+    .bg-heart::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: inherit;
+      border-radius: 50%;
+    }
+
+    .bg-heart::before {
+      top: -9px;
+      left: 0;
+    }
+
+    .bg-heart::after {
+      left: 9px;
+      top: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(110vh) scale(0.7) rotate(-45deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(-20vh) scale(1.1) rotate(-45deg);
+        opacity: 0;
+      }
+    }
+
+    /* Layout */
+    .wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 60px;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 16px 16px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-soft);
+      margin-bottom: 6px;
+      backdrop-filter: blur(10px);
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(255, 75, 125, 0.8);
+    }
+
+    h1 {
+      font-size: clamp(28px, 6vw, 42px);
+      margin-bottom: 10px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 24px rgba(255, 124, 155, 0.75);
+    }
+
+    .sub {
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .sub strong {
+      color: #ffe3f1;
+      font-weight: 600;
+    }
+
+    .date-tag {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--accent-soft);
+      opacity: 0.9;
+    }
+
+    /* Main grid */
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    /* Responsive: single column on smaller screens */
+    @media (max-width: 820px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding-top: 22px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .wrapper {
+        padding-inline: 12px;
+      }
+
+      .sub {
+        font-size: 14px;
+      }
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, rgba(255, 75, 125, 0.22), transparent 58%),
+        var(--bg-card);
+      border-radius: 18px;
+      padding: 20px 20px 22px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(14px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.06), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-title {
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+      margin-bottom: 6px;
+    }
+
+    .divider {
+      height: 1px;
+      border-radius: 999px;
+      background: linear-gradient(to right, rgba(255, 75, 125, 0.7), transparent);
+      margin: 8px 0 14px;
+    }
+
+    /* Hero / Heart + message */
+    .hero-content {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 600px) {
+      .hero-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .heart-wrapper {
+        margin-inline: auto;
+      }
+
+      .hero-text {
+        text-align: left;
+      }
+    }
+
+    .heart-wrapper {
+      flex-shrink: 0;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .heart-glow {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, rgba(255, 75, 125, 0.6), transparent 60%);
+      filter: blur(12px);
+      opacity: 0.8;
+      animation: pulseGlow 1.6s ease-in-out infinite;
+    }
+
+    .heart-main {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      background: var(--accent);
+      transform: rotate(-45deg);
+      animation: heartbeat 1.2s infinite;
+      box-shadow: 0 0 35px rgba(255, 75, 125, 0.95);
+    }
+
+    .heart-main::before,
+    .heart-main::after {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .heart-main::before {
+      top: -40px;
+      left: 0;
+    }
+
+    .heart-main::after {
+      left: 40px;
+      top: 0;
+    }
+
+    @keyframes heartbeat {
+      0% {
+        transform: scale(1) rotate(-45deg);
+      }
+      20% {
+        transform: scale(1.18) rotate(-45deg);
+      }
+      40% {
+        transform: scale(1) rotate(-45deg);
+      }
+      60% {
+        transform: scale(1.15) rotate(-45deg);
+      }
+      80% {
+        transform: scale(1) rotate(-45deg);
+      }
+      100% {
+        transform: scale(1) rotate(-45deg);
+      }
+    }
+
+    @keyframes pulseGlow {
+      0% {
+        transform: scale(1);
+        opacity: 0.7;
+      }
+      50% {
+        transform: scale(1.15);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.7;
+      }
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .hero-text h2 {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .hero-text p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .names {
+      margin-top: 10px;
+      font-size: 15px;
+      color: var(--accent-soft);
+    }
+
+    .names span {
+      font-weight: 600;
+      color: #ffe3ec;
+    }
+
+    /* Typewriter */
+    .typewriter {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #ffe8f1;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid rgba(255, 232, 241, 0.8);
+      width: 0;
+      animation: typing 6s steps(60, end) forwards, blink 0.8s step-end infinite alternate;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+    /* Timeline */
+    .timeline {
+      margin-top: 6px;
+      padding-left: 4px;
+      border-left: 1px dashed rgba(255, 255, 255, 0.25);
+    }
+
+    .timeline-item {
+      margin: 10px 0 6px;
+      padding-left: 12px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 6px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(255, 75, 125, 0.9);
+    }
+
+    .timeline-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255, 182, 201, 0.9);
+      margin-bottom: 1px;
+    }
+
+    .timeline-text {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Right card – reasons, LDR, etc. */
+    .reason-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .pill-card {
+      border-radius: 12px;
+      padding: 10px 11px;
+      background: rgba(12, 0, 24, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .pill-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #ffe0eb, #ff4b7d);
+      box-shadow: 0 0 12px rgba(255, 75, 125, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+
+    .pill-text-strong {
+      display: block;
+      color: #ffe3f1;
+      font-weight: 500;
+      margin-bottom: 1px;
+    }
+
+    .mini-heading {
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 12px;
+      margin-bottom: 6px;
+      color: #ffe3f1;
+    }
+
+    .song-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.05);
+      font-size: 12px;
+      margin: 2px 4px 4px 0;
+    }
+
+    .song-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .photo {
+      position: relative;
+      padding-top: 75%;
+      border-radius: 12px;
+      overflow: hidden;
+      background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.14), rgba(255, 75, 125, 0.45));
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
+      transform: translateY(0);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+      cursor: pointer;
+    }
+
+    /* Make images fill the photo card nicely */
+    .photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo span {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 6px 8px;
+      font-size: 11px;
+      color: #ffeef6;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent 60%);
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .photo:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.8);
+      filter: brightness(1.05);
+    }
+
+    /* Footer note */
+    footer {
+      text-align: center;
+      margin-top: 26px;
+      font-size: 12px;
+      color: rgba(255, 230, 244, 0.82);
+    }
+
+    footer span {
+      color: var(--accent-soft);
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated floating hearts in background -->
+  <div class="heart-bg">
+    <div class="bg-heart" style="left:5%; animation-duration:13s; animation-delay:0s;"></div>
+    <div class="bg-heart" style="left:17%; animation-duration:16s; animation-delay:2s;"></div>
+    <div class="bg-heart" style="left:30%; animation-duration:11s; animation-delay:1s;"></div>
+    <div class="bg-heart" style="left:44%; animation-duration:15s; animation-delay:3s;"></div>
+    <div class="bg-heart" style="left:58%; animation-duration:13s; animation-delay:1.5s;"></div>
+    <div class="bg-heart" style="left:71%; animation-duration:18s; animation-delay:0.8s;"></div>
+    <div class="bg-heart" style="left:85%; animation-duration:14s; animation-delay:2.4s;"></div>
+  </div>
+
+  <div class="wrapper">
+    <header>
+      <div class="pill">
+        <span class="pill-dot"></span>
+        Our First Valentine’s Day • Long Distance
+      </div>
+      <h1>Even miles can’t stop this.</h1>
+      <p class="sub">
+        Since <strong>21 December 2025</strong>, just 140 km have been trying to come between us,
+        but somehow you still feel closer than anyone who lives next door.
+      </p>
+      <div class="date-tag">
+        14 February 2026 • Our first Valentine’s Day together (and yet apart).
+      </div>
+    </header>
+
+    <main class="grid">
+      <!-- Left: heart + main message + timeline -->
+      <section class="card">
+        <div class="card-inner">
+          <div class="section-title">From one screen to another</div>
+          <div class="divider"></div>
+
+          <div class="hero-content">
+            <div class="heart-wrapper">
+              <div class="heart-glow"></div>
+              <div class="heart-main"></div>
+            </div>
+
+            <div class="hero-text">
+              <h2>Long distance, same heart.</h2>
+              <p>
+                Right now our whole relationship lives inside a screen – one video call,
+                one small window where I get to see your face, hear your voice,
+                and forget that 140 km and real life are in the way.
+              </p>
+              <div class="names">
+                From <span>Basil shan mk</span><br />
+                To <span>Fidha navas</span>
+              </div>
+              <div class="typewriter">
+                Even if we talk quietly so your mom doesn’t notice, every second I see you on that
+                screen feels louder than any distance between us.
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-label">21 • 12 • 2025</div>
+              <div class="timeline-text">
+                The day our story officially started – just a date on the calendar for others,
+                but a whole new world for me.
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-label">Our video‑call world</div>
+              <div class="timeline-text">
+                Sometimes we laugh, sometimes we stay silent, sometimes we rush
+                because your mom might notice — but those little stolen minutes still
+                mean everything to me.
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-label">Valentine’s Day 2026</div>
+              <div class="timeline-text">
+                Our first Valentine’s Day – just 140 km apart, looking at the same sky,
+                feeling the same love, and counting days until that distance becomes zero.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right: reasons, LDR details, rituals, gallery -->
+      <section class="card">
+        <div class="card-inner">
+          <div class="section-title">Why this long distance is worth it</div>
+          <div class="divider"></div>
+
+          <div class="reason-list">
+            <div class="pill-card">
+              <div class="pill-icon">📞</div>
+              <div>
+                <span class="pill-text-strong">Calls that feel like hugs</span>
+                Every video call ends with me missing you more, but also loving you even harder.
+              </div>
+            </div>
+            <div class="pill-card">
+              <div class="pill-icon">🔒</div>
+              <div>
+                <span class="pill-text-strong">Hiding us is hard</span>
+                I know how careful you have to be with your mom around, and I love you even more
+                for still finding tiny moments just to see me.
+              </div>
+            </div>
+            <div class="pill-card">
+              <div class="pill-icon">✈️</div>
+              <div>
+                <span class="pill-text-strong">Waiting for that day</span>
+                One station, one bus, one first real date after all this –
+                that thought alone keeps me going.
+              </div>
+            </div>
+            <div class="pill-card">
+              <div class="pill-icon">🪽</div>
+              <div>
+                <span class="pill-text-strong">Trust between us</span>
+                Distance and rules tried to scare us, but we chose to trust each other instead.
+              </div>
+            </div>
+          </div>
+
+          <div class="mini-heading">Our little long‑distance rituals</div>
+          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 4px;">
+            You can change these later to match exactly what we do, but this is how I feel our
+            small daily habits keep us close.
+          </p>
+          <div>
+            <div class="song-tag">
+              <span class="song-dot"></span>
+              <span>Night call with the brightness low so no one notices</span>
+            </div>
+            <div class="song-tag">
+              <span class="song-dot"></span>
+              <span>Random “I miss you” in the middle of a busy day</span>
+            </div>
+            <div class="song-tag">
+              <span class="song-dot"></span>
+              <span>Listening to the same song at the same time, 140 km apart</span>
+            </div>
+          </div>
+
+          <div class="mini-heading">Little snapshots of “us”, even in distance</div>
+          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 4px;">
+            One day, I want to replace these with real screenshots and photos of us – until then,
+            they are placeholders for all the memories we’re still going to make.
+          </p>
+          <div class="gallery">
+            <div class="photo">
+              <img src="./hystart.png" alt="Chat start">
+              <span>Our chat start with</span>
+            </div>
+            <div class="photo">
+              <img src="./ours (3).jpg" alt="You and me">
+              <span>You and me</span>
+            </div>
+            <div class="photo">
+              <img src="snap (1).jpg" alt="Uncle called">
+              <span>Uncle you called me at that moments</span>
+            </div>
+            <div class="photo">
+              <img src="./goodn8t.png" alt="Good night">
+              <span>Our message end with</span>
+            </div>
+            <div class="photo">
+              <img src="/image.png" alt="Future first date">
+              <span>Our future first real date picture</span>
+            </div>
+            <div class="photo">
+              <img src="./distace.png" alt="Distance to zero">
+              <span>The day 140 km becomes 0 km</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Made with <span>so much love</span>, a laptop, and 140 km of patience between us.  
+      No matter how far you are, you’re always one thought away in my mind.
+    </footer>
+  </div>
+</body>
+</html>
